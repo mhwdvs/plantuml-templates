@@ -1,0 +1,39 @@
+@startuml Domain Model Class Diagram
+hide circle
+
+' ------ TEMPLATE STARTS HERE -------
+'/'
+title Domain Model Class Diagram
+
+' Define a class
+class Car{
+    ' member variables
+    String contactEmail 
+
+    ' member functions (end in parentheses)
+    void size() 
+}
+
+class Wheel{
+    Float innerRadius
+    Float outerRadius
+    Float width
+}
+
+' Filled diamond arrow (composition) defined with *-- 
+' Multiplicity is defined with "" on either side of the arrow
+Car "1" *-- "4" Wheel
+' Hollow arrowhead (inherritance) defined with <|--
+RaceCar "1" <|-- "1" Car
+' Line with no arrowhead (association) defined with --
+Car "0..*" -- "0..1" Fuel
+
+legend
+    |= Symbol |= Meaning |
+    | "line with filled diamond tip" | Composition relationship |
+    | "line with no arrowhead" | Association relationship |
+    | "line with hollow arrowhead" | Inherritance relationship |
+endlegend
+'/
+
+@enduml

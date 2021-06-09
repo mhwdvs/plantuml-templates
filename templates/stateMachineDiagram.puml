@@ -1,0 +1,39 @@
+@startuml State Machine Diagram
+hide empty description
+left to right direction
+
+' ------ TEMPLATE STARTS HERE ------
+'/'
+title State Machine Diagram
+
+[*] --> Off
+
+state fork_state <<fork>>
+state join_state <<join>>
+
+Off --> fork_state : onButtonPushed [saftey\ncover closed] / run startup
+fork_state --> Idle
+Idle --> Printing : printRequest (doc)
+Printing --> Idle : printCompleted
+Printing --> join_state
+
+fork_state --> On
+On --> join_state
+
+join_state --> Off : offButtonPushed
+note on link
+    I couldn't get arrow to come
+    out of right of merge, appologies
+end note
+
+legend
+    |= Symbol |= Meaning |
+    | "solid dot" | Initial state |
+    | "hollow dot" | Final state |
+    | "round box" | State |
+    | "empty diamond box" | Conditional state transition |
+    | "arrow" | Transition between states |
+endlegend
+'/
+
+@enduml

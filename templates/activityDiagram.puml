@@ -1,0 +1,44 @@
+@startuml Activity Diagram
+
+' ------ TEMPLATE STARTS HERE ------
+'/'
+title Activity Diagram
+skinparam conditionStyle InsideDiamond
+
+' Define current swimlane
+|Customer|
+start
+' Arrow needed to add reasonable-looking comment to parallel statement
+-> foreach customer;
+fork
+:Request account;
+fork again
+:Access account;
+end fork
+-> end foreach;
+
+|System|
+:Create customer;
+' Conditional statement
+if (   \n\nOdd number of customers?\n\n   ) then (yes?)
+    :Break something;
+    stop
+else (no?)
+    :Return account details;
+    |Customer|
+    :*Smiles profusely*;
+endif
+
+stop
+
+legend
+    |= Symbol |= Meaning |
+    | "solid dot" | Activity start |
+    | "hollow dot" | Activity end |
+    | "round box" | Action |
+    | "diamond box" | Conditional statement |
+    | "arrow" | Indicate order of actions |
+endlegend
+'/
+
+@enduml

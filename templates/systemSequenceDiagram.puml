@@ -1,0 +1,32 @@
+@startuml System Sequence Diagram
+
+' ------ TEMPLATE STARTS HERE -------
+'/'
+title System Sequence Diagram
+
+actor Actor
+participant System
+
+Actor -> System : getData()
+note right: Note to the right of the interaction
+note left: Note to the left of the interaction
+System --> Actor : name, dob, credits
+
+' Group certain functions
+group System engaged
+System --> Actor : "Would you like fries with that?"
+Actor -> System : "No"
+end
+
+legend
+    |= Symbol |= Meaning |
+    | "filled arrow with solid line" | Request made by participant |
+    | "filled arrow with dotted line" | Response from participant |
+    | "vertical dotted line" | Lifeline |
+    | "person figure" | "Actor in system" |
+    | "pale yellow rectangle" | Participant in system |
+    | "intense yellow rectangle" | Note |
+endlegend
+'/
+
+@endluml
