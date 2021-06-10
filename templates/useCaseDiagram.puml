@@ -1,0 +1,20 @@
+@startuml Use Case Diagram
+left to right direction
+
+' ------ TEMPLATE STARTS HERE ------
+'/'
+actor A
+rectangle {
+  usecase "Eat Food" as UC1
+  usecase "Pay for Food" as UC2
+  usecase "Drink" as UC3
+  usecase "Review" as UC4
+}
+actor B
+A --> UC4
+B --> UC1
+B --> UC2
+B --> UC3
+
+@enduml
+'/
