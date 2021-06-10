@@ -1,0 +1,46 @@
+@startuml Package Diagram
+skinparam linetype polyline
+'skinparam linetype ortho
+top to bottom direction
+' ------ TEMPLATE STARTS HERE ------
+'/'
+package "View Layer" as vl {
+    rectangle SearchItemWindow
+    rectangle ViewAccessWindow
+    rectangle AddItemWindow
+    rectangle AddAccessWindow
+    rectangle "DisplayItem+ViewAccessWindow" as dipvaw
+    rectangle DisplayItemWindow
+}
+package "Domain Layer" as dl {
+    rectangle CartHandler
+    rectangle OnlineCart
+    rectangle CartItem
+    rectangle PromoOffering
+    rectangle ProductItem
+    rectangle CustomerHandler
+    rectangle Customer
+    rectangle Address
+    rectangle Account
+    rectangle InventoryItem
+}
+package "Data Access Layer" as dal {
+    rectangle CustomerDA
+    rectangle OnlineCartDA
+    rectangle CartItemDA
+    rectangle PromoOfferDA
+    rectangle ProductItemDA
+    rectangle InventoryItemDA
+}
+
+vl -[dashed]-> dal
+
+AddItemWindow -[dashed]-> CartItem
+AddAccessWindow -[dashed]-> CartItem
+SearchItemWindow -[dashed]-> ProductItem
+ViewAccessWindow -[dashed]-> ProductItem
+dipvaw -[dashed]-> InventoryItem
+DisplayItemWindow -[dashed]-> InventoryItem
+'/
+
+@enduml
