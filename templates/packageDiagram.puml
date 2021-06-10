@@ -34,6 +34,7 @@ package "Data Access Layer" as dal {
 }
 
 vl -[dashed]-> dal
+dl -[dashed]-> dal
 
 AddItemWindow -[dashed]-> CartItem
 AddAccessWindow -[dashed]-> CartItem
